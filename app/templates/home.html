@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+
+<link rel="stylesheet" href={{cdn_css | safe}} type="text/css">
+<script type="text/javascript" src={{cdn_js | safe}}></script>
+
+
+
+<div class="container">
+
+{{ script1 | safe }}
+{{ div1 | safe }}
+
+
+<a href="{{url_for('home')}}"><button type="button" class="btn btn-success">Make new analysis!</button></a><br><br>
+
+</div>
+
+{% endblock %}

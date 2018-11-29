@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta name="description" content="Application for investment risk measurement">
+    <meta name="keywords" content="Stock exchange, risk, portfolio theory, shares">
+
+    <title>Investment Risk App</title>
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('home')}}">
+                INVESTMENT RISK APP<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+            </a>
+            <ul class="nav navbar-nav">
+                <li class="">
+                    <a href="{{ url_for('home')}}">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp; Home
+                    </a>
+                </li
+        </div>
+    </nav>
+
+
+    {% block body %}
+    {% endblock %}
+
+</body>
+</html>
