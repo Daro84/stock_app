@@ -1,20 +1,36 @@
 {% extends 'layout.html' %}
 {% block body %}
 
-
-<link rel="stylesheet" href={{cdn_css | safe}} type="text/css">
-<script type="text/javascript" src={{cdn_js | safe}}></script>
-
-
-
 <div class="container">
 
-{{ script1 | safe }}
-{{ div1 | safe }}
+    <form action="{{url_for('analysis')}}" method="POST">
+        <h3> {{text | safe}} </h3>
+        <fieldset>
+            <legend>Check your investment risk! Mark instruments that you have in your portfolio:</legend>
+            <div class="checkbox"><label><input type="checkbox" id='ALR' value='ALR' name="ticker">ALR</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='CCC' value='CCC' name="ticker">CCC</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='CDR' value='CDR' name="ticker">CDR</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='CPS' value='CPS' name="ticker">CPS</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='ENG' value='ENG' name="ticker">ENG</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='EUR' value='EUR' name="ticker">EUR</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='JSW' value='JSW' name="ticker">JSW</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='KGH' value='KGH' name="ticker">KGH</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='LPP' value='LPP' name="ticker">LPP</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='LTS' value='LTS' name="ticker">LTS</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='MBK' value='MBK' name="ticker">MBK</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='OPL' value='OPL' name="ticker">OPL</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='PEO' value='PEO' name="ticker">PEO</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='PGE' value='PGE' name="ticker">PGE</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='PGN' value='PGN' name="ticker">PGN</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='PKN' value='PKN' name="ticker">PKN</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='PKO' value='PKO' name="ticker">PKO</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='PZU' value='PZU' name="ticker">PZU</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='SPL' value='SPL' name="ticker">SPL</label></div>
+            <div class="checkbox"><label><input type="checkbox" id='TPE' value='TPE' name="ticker">TPE</label></div>
+        </fieldset>
 
-
-<a href="{{url_for('home')}}"><button type="button" class="btn btn-success">Make new analysis!</button></a><br><br>
-
+            <button type="submit" class="btn btn-success">Check!</button><br><br>
+    </form>
 </div>
 
 {% endblock %}

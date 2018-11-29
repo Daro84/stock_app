@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+
+<link rel="stylesheet" href={{cdn_css | safe}} type="text/css">
+<script type="text/javascript" src={{cdn_js | safe}}></script>
+
+
+
+<div class="container">
+
+<div class="alert alert-success" role="alert">
+    <strong>Results of the analysis (start date {{date_start}}, end date {{date_end}})</strong>
+</div>
+
+<h4>Portfolio value: {{portfolio_value}} PLN</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Ticker</th>
+            <th scope="col">Last price (PLN)</th>
+            <th scope="col">Number of shares in portfolio</th>
+            <th scope="col">Position value in portfolio (PLN)</th>
+            <th scope="col">Rate of return (% in last {{period}})</th>
+            <th scope="col">Standard deviation (%)</th>
+            <th scope="col">Beta coefficient</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for d in data_summary %}
+            <tr>
+                <td><strong>{{d.ticker}}</strong></td>
+                <td>{{d.last_value}}</td>
+                <td>{{d.amount}}</td>
+                <td>{{d.position_value}}</td>
+                <td>{{d.rate_return}}</td>
+                <td>{{d.sd}}</td>
+                <td>{{d.beta}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h4>Average weighted <strong>Beta coefficient</strong> of your portfolio for last {{period}}: <strong>{{beta_portfolio}}</strong></h4><br>
+<h4>Candlestick charts for components of your portfolio for last {{period}} (with WIG20 benchmark): </h4>
+
+{{ script1 | safe }}
+
+{% for d in div1 %}
+    {{ d | safe }}
+    <br><br>
+{% endfor %}
+
+<a href="{{url_for('home')}}"><button type="button" class="btn btn-success">Make new analysis!</button></a><br><br>
+
+</div>
+
+{% endblock %}
