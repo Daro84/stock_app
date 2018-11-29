@@ -2,11 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def home():
     return render_template('home.html')
-
 
 # get data from user - stocks for analysis
 @app.route('/analysis/', methods=['POST'])
@@ -18,7 +16,6 @@ def analysis():
         return render_template('analysis.html', ticker_list=ticker_list)
     else:
         return render_template('home.html', text='Please choose at least 1 instrument!')
-
 
 @app.route('/chart', methods=['POST'])
 def chart():
@@ -174,7 +171,6 @@ def chart():
                            date_start=date_start,
                            date_end=date_end,
                            period=period)
-
 
 @app.route('/about')
 def about():
