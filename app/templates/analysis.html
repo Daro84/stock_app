@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'layout.html' %}
+{% block body %}
 
-</body>
-</html>
+<div class="container">
+
+        <a href="{{url_for('home')}}"><button type="button" class="btn btn-success">Previous menu</button></a><br><br>
+
+    <form action="{{url_for('chart')}}" method='POST'>
+        <fieldset>
+            <legend>Enter number of shares for each stock in your portfolio:</legend>
+                <ul class="list-group">
+                    {% for t in ticker_list %}
+                    <li class="list-group-item"><label for='{{t}}'>{{t}}</label> <input type='number' min='1' id='{{t}}' name="quantity" required></li><br/>
+                    {% endfor %}
+                </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>Choose period of analysis:</legend>
+                <div class="radio"><label><input type="radio" id='month' value='21' name="days_nb">Month</label></div>
+                <div class="radio"><label><input type="radio" id='quarter' value='63' name="days_nb">Quarter</label></div>
+                <div class="radio"><label><input type="radio" id='year' value='250' name="days_nb" checked>Year</label></div>
+                <div class="radio"><label><input type="radio" id='3_years' value='750' name="days_nb">3 years</label></div>
+                <div class="radio"><label><input type="radio" id='5_years' value='1250' name="days_nb">5 years</label></div>     
+        </fieldset>
+
+        <button type="submit" class="btn btn-success">Make analysis!</button><br><br>
+
+    </form>
+
+</div>
+
+{% endblock %}
