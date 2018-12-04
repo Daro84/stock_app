@@ -9,9 +9,8 @@ def home():
 # get data from user - stocks for analysis
 @app.route('/analysis/', methods=['POST'])
 def analysis():
-    if request.method == 'POST':
-        global ticker_list
-        ticker_list = request.form.getlist('ticker')
+    global ticker_list
+    ticker_list = request.form.getlist('ticker')
     if len(ticker_list) > 0:
         return render_template('analysis.html', ticker_list=ticker_list)
     else:
